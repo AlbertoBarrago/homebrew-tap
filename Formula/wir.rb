@@ -1,16 +1,17 @@
 class Wir < Formula
   desc "What Is Running - Port and Process Inspector"
-  homepage "https://github.com/AlbertoBarrago/Wir"
-  url "https://github.com/AlbertoBarrago/Wir/releases/download/v1.1.0/wir-1.1.0.tar.gz"
-  sha256 "c79a5e224cdbec7fcfc6791a634f6b5d23ea79d7688e403e1b64a7193de6c1b2"
+  homepage "https://github.com/AlbertoBarrago/wir"
+  url "https://github.com/AlbertoBarrago/wir/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "9d7da5ea7ef278671e665dc922e4ae880883dfe7c343fe4a1967108ad7db0822"
   version "1.1.0"
   license "MIT"
 
   def install
+    system "make"
     bin.install "wir"
   end
 
   test do
-    system "#{bin}/wir", "--help"
+    system "#{bin}/wir", "--version"
   end
 end
