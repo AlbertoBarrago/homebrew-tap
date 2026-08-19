@@ -1,31 +1,58 @@
-# Homebrew Tap for wir
+# AlbertoBarrago Homebrew Tap
 
-This is the Homebrew tap for [wir](https://github.com/AlbertoBarrago/wir) - What Is Running, a cross-platform CLI tool for inspecting processes and ports.
+Homebrew formulae maintained by Alberto Barrago.
 
 ## Installation
 
-```bash
-brew tap AlbertoBarrago/tap
-brew install wir
+Install a formula directly with its fully qualified name:
+
+```sh
+brew install AlbertoBarrago/tap/<formula>
 ```
 
-## Usage
+## Formulae
 
-Check what's running on a port:
-```bash
-wir --port 8080
+| Formula | Description | Install |
+| --- | --- | --- |
+| [`java-manager`](https://github.com/AlbertoBarrago/java-manager) | Switch between JDKs registered with macOS. | `brew install AlbertoBarrago/tap/java-manager` |
+| [`wir`](https://github.com/AlbertoBarrago/wir) | Inspect processes and listening ports. | `brew install AlbertoBarrago/tap/wir` |
+
+## java-manager setup
+
+After installation, enable shell integration.
+
+For Zsh:
+
+```sh
+echo 'eval "$(java_manager init zsh)"' >> ~/.zshrc
+exec zsh
 ```
 
-Get info about a process:
-```bash
-wir --pid 1234
+For Bash:
+
+```sh
+echo 'eval "$(java_manager init bash)"' >> ~/.bashrc
+exec bash
 ```
 
-See all available options:
-```bash
-wir --help
+Then select an installed JDK:
+
+```sh
+java_manager list
+java_manager use 21
+java_manager current
 ```
 
-## More Information
+## Maintaining the tap
 
-Visit the [main repository](https://github.com/AlbertoBarrago/wir) for full documentation.
+Formulae live in `Formula/` and must pin immutable release URLs and SHA-256
+checksums. Before publishing an update, run:
+
+```sh
+brew audit --strict --online Formula/<formula>.rb
+brew install --build-from-source Formula/<formula>.rb
+brew test <formula>
+```
+
+Keep formula changes scoped to a branch and release them only after the upstream
+tag is available.
