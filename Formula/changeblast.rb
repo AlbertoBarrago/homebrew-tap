@@ -5,13 +5,13 @@
 class Changeblast < Formula
   desc "Local-first CLI that estimates the blast radius of a code change"
   homepage "https://github.com/AlbertoBarrago/changeblast"
-  version "0.1.9"
+  version "0.1.10"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/AlbertoBarrago/changeblast/releases/download/v0.1.9/changeblast_0.1.9_darwin_amd64.tar.gz"
-      sha256 "e1ebb0599cbf705a37d0d604a5217e8cac71726666f573fcb3e348fe2e17e77f"
+      url "https://github.com/AlbertoBarrago/changeblast/releases/download/v0.1.10/changeblast_0.1.10_darwin_amd64.tar.gz"
+      sha256 "8aa3ec1a7e9adb234b3f2794045ecc167f95992f40e23d48f21e1278c9a7e58c"
 
       define_method(:install) do
         bin.install "blast"
@@ -19,8 +19,8 @@ class Changeblast < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/AlbertoBarrago/changeblast/releases/download/v0.1.9/changeblast_0.1.9_darwin_arm64.tar.gz"
-      sha256 "2d2c6d96bc4b4186c67cf5cb77bbe22e249f6bd1489a32374aa224498f450d8e"
+      url "https://github.com/AlbertoBarrago/changeblast/releases/download/v0.1.10/changeblast_0.1.10_darwin_arm64.tar.gz"
+      sha256 "eaa9c5202d493dfa00cdd021f8a26113220ef34f5536670a0a1853b5206a04f7"
 
       define_method(:install) do
         bin.install "blast"
@@ -31,16 +31,16 @@ class Changeblast < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AlbertoBarrago/changeblast/releases/download/v0.1.9/changeblast_0.1.9_linux_amd64.tar.gz"
-      sha256 "db93bc4ac950d299088c2eb2fcf7264a915e035ef837b76515ad4e64a3231e20"
+      url "https://github.com/AlbertoBarrago/changeblast/releases/download/v0.1.10/changeblast_0.1.10_linux_amd64.tar.gz"
+      sha256 "9a8795a9451315107cab61c5766decc5561f41d57f7976eda1790f14bed412d7"
       define_method(:install) do
         bin.install "blast"
         man1.install Dir["*.1"]
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AlbertoBarrago/changeblast/releases/download/v0.1.9/changeblast_0.1.9_linux_arm64.tar.gz"
-      sha256 "b87428388131d653944c7607127f72427fc1c478b3b29604cd643d61392ea976"
+      url "https://github.com/AlbertoBarrago/changeblast/releases/download/v0.1.10/changeblast_0.1.10_linux_arm64.tar.gz"
+      sha256 "d6edb34db8c71d573a5946030e4c6e362f9a9ffd189063d2caab96302b67b7f1"
       define_method(:install) do
         bin.install "blast"
         man1.install Dir["*.1"]
