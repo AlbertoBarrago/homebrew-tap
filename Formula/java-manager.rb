@@ -1,9 +1,15 @@
+# This project was renamed from java-manager to jm. This formula is
+# frozen (no longer updated) and kept only so existing installs get a
+# clear deprecation notice; new installs should use
+# `brew install AlbertoBarrago/tap/jm`.
 class JavaManager < Formula
-  desc "Switch between JDKs registered with macOS"
-  homepage "https://github.com/AlbertoBarrago/java-manager"
+  desc "Switch between JDKs registered with macOS (renamed to jm)"
+  homepage "https://github.com/AlbertoBarrago/JM"
   url "https://github.com/AlbertoBarrago/java-manager/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "4b2c0fc0997cf64738c423798d87b5b12392c20cdc5599c90e1680c5fd9e92cf"
   license "MIT"
+
+  deprecate! date: "2026-08-27", because: "has been renamed to jm; run `brew install AlbertoBarrago/tap/jm` instead"
 
   depends_on :macos
 
