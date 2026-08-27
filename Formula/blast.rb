@@ -5,13 +5,13 @@
 class Blast < Formula
   desc "Local-first CLI that estimates the blast radius of a code change"
   homepage "https://github.com/AlbertoBarrago/blast"
-  version "0.1.15"
+  version "0.1.16"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/AlbertoBarrago/blast/releases/download/v0.1.15/blast_0.1.15_darwin_amd64.tar.gz"
-      sha256 "aea534461571f0de6c69de45d8097bf40f24625573977c436af2d776ef329f12"
+      url "https://github.com/AlbertoBarrago/blast/releases/download/v0.1.16/blast_0.1.16_darwin_amd64.tar.gz"
+      sha256 "223ef9520fd8d1bdd70bfa6b8a1c0c717d351e8854a871a38a30a54825e3357d"
 
       define_method(:install) do
         bin.install "blast"
@@ -19,8 +19,8 @@ class Blast < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/AlbertoBarrago/blast/releases/download/v0.1.15/blast_0.1.15_darwin_arm64.tar.gz"
-      sha256 "3b82092019879ee726fa152af54a7276b497caa5912a27993da29ab72b4fc00b"
+      url "https://github.com/AlbertoBarrago/blast/releases/download/v0.1.16/blast_0.1.16_darwin_arm64.tar.gz"
+      sha256 "b5e1b4f891756be23c10eff24acfb2aaf691bddff585953965869d8e72cfa4bd"
 
       define_method(:install) do
         bin.install "blast"
@@ -31,21 +31,31 @@ class Blast < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AlbertoBarrago/blast/releases/download/v0.1.15/blast_0.1.15_linux_amd64.tar.gz"
-      sha256 "7097cf80762c923e5a4c5020f61b36bd54b95d2e679cd01c31b390672f166e6e"
+      url "https://github.com/AlbertoBarrago/blast/releases/download/v0.1.16/blast_0.1.16_linux_amd64.tar.gz"
+      sha256 "16a7bb478512d4787a9b2382ab8dc532a18347488b30dd823584b1bb1aef3d6c"
       define_method(:install) do
         bin.install "blast"
         man1.install Dir["*.1"]
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AlbertoBarrago/blast/releases/download/v0.1.15/blast_0.1.15_linux_arm64.tar.gz"
-      sha256 "7c051c1fdf91280913b71e1a587d2f3489e8b577abca2ee9789d8915603b6bc2"
+      url "https://github.com/AlbertoBarrago/blast/releases/download/v0.1.16/blast_0.1.16_linux_arm64.tar.gz"
+      sha256 "24d89f288ef70fbc26eb5d4dabceff5c2bc4e6d6280c68c0b047515b4ca77e31"
       define_method(:install) do
         bin.install "blast"
         man1.install Dir["*.1"]
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      "blast" is also the name of an unrelated homebrew-core formula
+      (NCBI's BLAST bioinformatics tool). Always install/upgrade this
+      one by its fully-qualified name:
+        brew install AlbertoBarrago/tap/blast
+      A bare "brew install blast" resolves to homebrew-core instead.
+    EOS
   end
 
   test do
