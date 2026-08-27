@@ -5,13 +5,13 @@
 class Serval < Formula
   desc "Local-first CLI that estimates the blast radius of a code change"
   homepage "https://github.com/AlbertoBarrago/serval"
-  version "0.1.20"
+  version "0.1.21"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/AlbertoBarrago/serval/releases/download/v0.1.20/serval_0.1.20_darwin_amd64.tar.gz"
-      sha256 "865ef98e6d3a2dd2cd236378e670441d886e400cfb322b2de996113d152cdaff"
+      url "https://github.com/AlbertoBarrago/serval/releases/download/v0.1.21/serval_0.1.21_darwin_amd64.tar.gz"
+      sha256 "ec863373c04b93a1596d1ffe26b7c1038b0653755c0a4be6bf9b15a3b13ad383"
 
       define_method(:install) do
         bin.install "serval"
@@ -19,8 +19,8 @@ class Serval < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/AlbertoBarrago/serval/releases/download/v0.1.20/serval_0.1.20_darwin_arm64.tar.gz"
-      sha256 "86c018b3d49a6fa0ef66ddfbce58750b3a5494c164f6e9c28a75a2ef1969b755"
+      url "https://github.com/AlbertoBarrago/serval/releases/download/v0.1.21/serval_0.1.21_darwin_arm64.tar.gz"
+      sha256 "170f4e859870dff1a74fa457e51565605102f521e23e4391d7a95212a25e862e"
 
       define_method(:install) do
         bin.install "serval"
@@ -31,16 +31,16 @@ class Serval < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AlbertoBarrago/serval/releases/download/v0.1.20/serval_0.1.20_linux_amd64.tar.gz"
-      sha256 "0ea6c67a33223194529e0e04e8ea7a5b6c4dfa01743db5739308aa3051e029b2"
+      url "https://github.com/AlbertoBarrago/serval/releases/download/v0.1.21/serval_0.1.21_linux_amd64.tar.gz"
+      sha256 "bdd66973b59a4c1cab1efc2acfabd559ef94f891d7598ab86db9927a29655215"
       define_method(:install) do
         bin.install "serval"
         man1.install Dir["*.1"]
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AlbertoBarrago/serval/releases/download/v0.1.20/serval_0.1.20_linux_arm64.tar.gz"
-      sha256 "a5b96445a79443125bf8aa7fb65403e890ee954ecf829cf3bea312415b57f368"
+      url "https://github.com/AlbertoBarrago/serval/releases/download/v0.1.21/serval_0.1.21_linux_arm64.tar.gz"
+      sha256 "e4d89ce926fed7ba8f52d54c1a8f828010e42cc8b6a0183e95b161d51258ce8e"
       define_method(:install) do
         bin.install "serval"
         man1.install Dir["*.1"]
